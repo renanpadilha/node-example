@@ -14,6 +14,33 @@ Para executar o projeto:
 # Configuração
 Para criar o banco de dados basta configurar o arquivo `knexfile.js` que está na raiz do projeto com os dados de acesso do Postgres.
 
+```
+development: {
+    client: 'pg',
+    debug: true,
+    connection: {
+      // debug: true,
+      pool: { max: 1, min: 1 },
+      host: 'localhost',
+      port: 5432,
+      user: 'postgres',
+      database: 'node-example',
+      password: '123'
+    },
+    migrations: {
+      tableName: 'knex_migrations',
+      directory: __dirname + '/migrations'
+    },
+    seeds: {
+      directory: __dirname + '/seeds'
+    },
+    pool: {
+      min: 2,
+      max: 10
+    }
+  }
+```
+
 Após configurar, basta executar o comando:
 
 `knex migrate:latest --env development`
