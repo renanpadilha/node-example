@@ -19,7 +19,6 @@ development: {
     client: 'pg',
     debug: true,
     connection: {
-      // debug: true,
       pool: { max: 1, min: 1 },
       host: 'localhost',
       port: 5432,
@@ -51,17 +50,17 @@ Para o cliente se logar é necessário ter criado um cliente com seu respectivo 
 Para realizar a autenticação do usuário é necessário o envio do usuário e senha no cabeçalho [Authorization] como tipo Basic Auth. 
 Ao realizar login, o usuário recebe um **token** para realizar as demais requisições.
 
-### POST /login
+### POST /api/v1/login
 `HEADER Authorization: Username:Password`
 
-### POST /logout
+### POST /api/v1/logout
 ```
 Header Authorization: Token=[TOKENDOUSUÁRIO]
 ```
 
 ## Locação de filmes
 
-### POST /locacao
+### POST /api/v1/locacao
 
 `Content-type: json`
 
@@ -82,7 +81,7 @@ Response
 
 ## Devolução
 
-### POST /devolucao/:id_locacao
+### POST /api/v1/devolucao/:id_locacao
 
 `Content-type:json`
 
@@ -96,7 +95,7 @@ Response
 
 ## Clientes
 
-### POST /clientes
+### POST /api/v1/clientes
 
 `Content-type: json`
 ```
@@ -120,7 +119,7 @@ Response
 ]
 ``` 
 
-### GET /clientes
+### GET /api/v1/clientes
 
 `Content-type: json`
 ```
@@ -135,7 +134,7 @@ Response
 ]
 ```
 
-### GET /clientes/:id
+### GET /api/v1/clientes/:id
 
 `Content-type: json`
 ```
@@ -154,16 +153,16 @@ Response
 
 Para pesquisar um filme pelo **Título** ou **Diretor** basta adicionar uma query string na chamada
 
-### GET /filmes?titulo=[NOMEDOTITULO]
+### GET /api/v1/filmes?titulo=[NOMEDOTITULO]
 
 `Content-type: json`
 
 
-### GET /filmes?diretor=[NOMEDODIRETOR]
+### GET /api/v1/filmes?diretor=[NOMEDODIRETOR]
 
 `Content-type: json`
 
-### POST /filmes
+### POST /api/v1/filmes
 
 `Content-type: json`
 ```
@@ -186,7 +185,7 @@ Response
 ]
 ``` 
 
-### GET /filmes
+### GET /api/v1/filmes
 
 `Content-type: json`
 ```
@@ -206,7 +205,7 @@ Response
 ]
 ```
 
-### GET /filmes/:id
+### GET /api/v1/filmes/:id
 
 
 `Content-type: json` 
